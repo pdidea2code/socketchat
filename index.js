@@ -51,7 +51,7 @@ const Message = mongoose.model("Message", messageSchema);
 
 // Routes
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
+  res.send("hello");
 });
 
 app.post("/msg", async (req, res) => {
