@@ -11,6 +11,7 @@ const io = socketIO(server, {
   cors: {
     origin: "*",
     methods: ["GET", "POST"],
+
     allowedHeaders: ["my-custom-header"],
     credentials: true,
   },
@@ -181,6 +182,10 @@ io.on("connection", (socket) => {
       console.error("Error removing user:", error);
     }
   });
+});
+
+socket.on("connect_error", (error) => {
+  console.error("WebSocket connection error:", error);
 });
 
 // Start server
